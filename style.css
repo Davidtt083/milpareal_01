@@ -296,7 +296,7 @@ body {
 
     .prev-button,
     .next-button{
-        margin-top: 557px;
+        margin-top: 525px;
     }
 }
 
@@ -374,7 +374,7 @@ body {
 
     .prev-button,
     .next-button {
-        margin-top: 532px;
+        margin-top: 704px;
         width: 70px;
         height: 70px;
     }
@@ -397,7 +397,7 @@ body {
 @media (min-width: 1024px) and (max-height: 768px) {
     .prev-button,
     .next-button {
-        margin-top: 700px;
+        margin-top: 750px;
     }
 }
 
