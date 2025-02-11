@@ -115,3 +115,7 @@ gsap.from(".rounded-container", {
     duration: 1.2,      // Duración total de la animación (en segundos)
     ease: "bounce.out"  // Easing con rebote al finalizar
 });
+
+
+
+
