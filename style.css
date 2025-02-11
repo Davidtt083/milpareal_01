@@ -249,12 +249,6 @@ body {
     height: auto;
 }
 
-.bases p {
-    margin-bottom: 0;
-    display: inline;
-}
-
-
 @media (max-width: 768px) {
     .card {
         min-width: calc(100% / 1.5);
@@ -279,6 +273,26 @@ body {
     margin-bottom: 1rem;
     justify-items: center;
 }
+
+
+
+@media (max-width: 740px) {
+    .top-left-circle {
+        left: -239px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .rounded-square img {
+        max-width: 42%;
+    }
+
+    .prev-button,
+    .next-button{
+        margin-top: 557px;
+    }
+}
+
 
 
 @media (min-width: 768px) {

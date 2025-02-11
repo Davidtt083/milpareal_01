@@ -5,20 +5,47 @@ const cardWidth = document.querySelector('.card').offsetWidth;
 let currentPosition = 0;
 
 nextButton.addEventListener('click', () => {
-    currentPosition += cardWidth;
-    if (currentPosition > carousel.scrollWidth - carousel.offsetWidth) {
-        currentPosition = carousel.scrollWidth - carousel.offsetWidth;
-    }
-    carousel.style.transform = `translateX(-${currentPosition}px)`;
+    moveCarousel(cardWidth);
 });
 
 prevButton.addEventListener('click', () => {
-    currentPosition -= cardWidth;
-    if (currentPosition < 0) {
+    moveCarousel(-cardWidth);
+});
+
+function moveCarousel(distance) {
+    currentPosition += distance;
+    if (currentPosition > carousel.scrollWidth - carousel.offsetWidth) {
+        currentPosition = carousel.scrollWidth - carousel.offsetWidth;
+    } else if (currentPosition < 0) {
         currentPosition = 0;
     }
     carousel.style.transform = `translateX(-${currentPosition}px)`;
+}
+
+// Soporte para gestos táctiles
+let startX = 0;
+let isDragging = false;
+
+carousel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
 });
+
+carousel.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    let deltaX = e.touches[0].clientX - startX;
+
+    // Si se desliza más de 50px, movemos el carrusel
+    if (Math.abs(deltaX) > 50) {
+        moveCarousel(deltaX > 0 ? -cardWidth : cardWidth);
+        isDragging = false; // Evita múltiples desplazamientos en un solo deslizamiento
+    }
+});
+
+carousel.addEventListener('touchend', () => {
+    isDragging = false;
+});
+
 
 
 // Script lottie, animación de confeti
