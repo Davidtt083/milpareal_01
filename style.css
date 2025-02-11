@@ -32,11 +32,8 @@ body {
     top: 50%;
     left: 50%;
     width: 100%;
-    /* Ancho al 100% del contenedor */
     height: 100%;
-    /* Alto al 100% del contenedor */
     object-fit: cover;
-    /* Cubre todo el contenedor, recortando partes si es necesario */
     transform: translate(-50%, -50%);
 }
 
@@ -81,7 +78,6 @@ body {
 .rounded-square {
     width: 80%;
     height: 98%;
-    /* Fondo semitransparente con un tinte morado */
     background: rgba(77, 52, 134, 0.4);
     border-radius: 20px;
     margin: 10px;
@@ -91,12 +87,9 @@ body {
     align-items: center;
     color: #ffffff;
     text-align: center;
-    /* Sombra más suave y difuminada */
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    /* Desenfoque para simular el efecto de vidrio */
     backdrop-filter: blur(8.5px);
     -webkit-backdrop-filter: blur(8.5px);
-    /* Borde sutil para reforzar el efecto glass */
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
@@ -183,7 +176,7 @@ body {
 
 .prev-button {
     right: 60px;
-    /* Para que no se sobrepongan */
+
 }
 
 .next-button {
@@ -265,7 +258,6 @@ body {
 @media (max-width: 768px) {
     .card {
         min-width: calc(100% / 1.5);
-        /* Mostrar 1.5 tarjetas en pantallas pequeñas */
     }
 }
 
@@ -273,13 +265,13 @@ body {
     min-height: 20vh;
 }
 
-/* Añade espacio entre filas */
+
 .row {
     margin-bottom: 1rem;
     padding: 15px 0;
 }
 
-/* Estilos base para las columnas */
+
 .col-12 {
 
     border-radius: 10px;
@@ -288,7 +280,7 @@ body {
     justify-items: center;
 }
 
-/* Media queries para dispositivos medianos/grandes */
+
 @media (min-width: 768px) {
     .col-md-6 {
         margin-bottom: 0;
