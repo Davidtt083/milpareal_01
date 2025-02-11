@@ -1,0 +1,359 @@
+@font-face {
+    font-family: 'LucilaGrande';
+    src: url('fonts/LucidaGrande.ttf') format('truetype');
+
+    font-family: 'BlinkKiss';
+    src: url('fonts/BlinkKiss.ttf') format('truetype');
+}
+
+body {
+    background: linear-gradient(to bottom, #4d3486, #7b58b4);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.logo_promo {
+    position: relative;
+}
+
+.video_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video_container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    /* Ancho al 100% del contenedor */
+    height: 100%;
+    /* Alto al 100% del contenedor */
+    object-fit: cover;
+    /* Cubre todo el contenedor, recortando partes si es necesario */
+    transform: translate(-50%, -50%);
+}
+
+
+.section-title {
+    color: #f7e235;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 2.5rem;
+    font-family: BlinkKiss;
+    letter-spacing: 3px;
+}
+
+
+
+.rounded-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    margin-top: -14px;
+    width: 100vw;
+    min-height: 500px;
+    border-radius: 0;
+}
+
+.rounded-container-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.rounded-square {
+    width: 80%;
+    height: 98%;
+    /* Fondo semitransparente con un tinte morado */
+    background: rgba(77, 52, 134, 0.4);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    /* Sombra más suave y difuminada */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /* Desenfoque para simular el efecto de vidrio */
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    /* Borde sutil para reforzar el efecto glass */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+.blink-kiss-font {
+    font-family: 'BlinkKiss', sans-serif;
+    color: #f7e235;
+    letter-spacing: 3px;
+    font-size: 1.7rem;
+}
+
+.rounded-square img {
+    max-width: 66%;
+    height: auto;
+    margin-top: -7px;
+}
+
+.top-left-circle {
+    position: relative;
+    left: -89px;
+    width: 60px;
+    height: 60px;
+    background-color: #f7e235;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -56px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.small-text {
+    font-size: 2.8rem;
+    font-family: 'BlinkKiss', sans-serif;
+    color: #4d3486;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    min-width: calc(100% / 2.5);
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #4d348600;
+    color: #ffffff;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+
+.prev-button,
+.next-button {
+    position: absolute;
+    bottom: 0p;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 379px;
+    color: white;
+}
+
+.prev-button {
+    right: 60px;
+    /* Para que no se sobrepongan */
+}
+
+.next-button {
+    right: 10px;
+}
+
+.prev-button::before,
+.next-button::before {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(135deg);
+}
+
+.next-button::before {
+    transform: rotate(-45deg);
+}
+
+.call-to-action {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #ffff;
+    margin-top: -23px;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.call-to-action p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#confetti-animation {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    pointer-events: none; 
+    z-index: 2; 
+  }
+
+.llamado_accion {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.bases {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    align-items: center;
+    justify-content: space-around;
+    font-size: 0.8rem;
+}
+
+.bases img {
+    max-width: 50%;
+    height: auto;
+}
+
+.bases p {
+    margin-bottom: 0;
+    display: inline;
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        min-width: calc(100% / 1.5);
+        /* Mostrar 1.5 tarjetas en pantallas pequeñas */
+    }
+}
+
+.min-vh-20 {
+    min-height: 20vh;
+}
+
+/* Añade espacio entre filas */
+.row {
+    margin-bottom: 1rem;
+    padding: 15px 0;
+}
+
+/* Estilos base para las columnas */
+.col-12 {
+
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 1rem;
+    justify-items: center;
+}
+
+/* Media queries para dispositivos medianos/grandes */
+@media (min-width: 768px) {
+    .col-md-6 {
+        margin-bottom: 0;
+    }
+
+    .row {
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: 3.75rem;
+        text-align: left;
+        padding-left: 1.5rem;
+    }
+
+    .top-left-circle {
+        left: -199px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .small-text {
+        font-size: 4.5rem;
+    }
+
+    .blink-kiss-font {
+        font-size: 3.2rem;
+    }
+
+    .rounded-square {
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+
+    .rounded-square img {
+        width: 53%;
+    }
+
+    .card h3 {
+        font-size: 2rem;
+    }
+
+    .card p {
+        font-size: 1.2rem;
+    }
+
+    .prev-button,
+    .next-button {
+        margin-top: 584px;
+        width: 70px;
+        height: 70px;
+    }
+    .prev-button{
+        right: 90px;
+    }
+    .call-to-action{
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .section-title {
+        font-size: 3.5rem;
+        /* 32px en desktop */
+    }
+}
