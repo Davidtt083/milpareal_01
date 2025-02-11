@@ -22,7 +22,7 @@ function moveCarousel(distance) {
     carousel.style.transform = `translateX(-${currentPosition}px)`;
 }
 
-// Soporte para gestos táctiles
+
 let startX = 0;
 let isDragging = false;
 
@@ -35,10 +35,10 @@ carousel.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
     let deltaX = e.touches[0].clientX - startX;
 
-    // Si se desliza más de 50px, movemos el carrusel
+    
     if (Math.abs(deltaX) > 50) {
         moveCarousel(deltaX > 0 ? -cardWidth : cardWidth);
-        isDragging = false; // Evita múltiples desplazamientos en un solo deslizamiento
+        isDragging = false; 
     }
 });
 
@@ -48,7 +48,7 @@ carousel.addEventListener('touchend', () => {
 
 
 
-// Script lottie, animación de confeti
+
 var animation = lottie.loadAnimation({
     container: document.getElementById('confetti-animation'),
     renderer: 'svg',
@@ -57,11 +57,11 @@ var animation = lottie.loadAnimation({
     path: 'json/confeti.json'
 });
 
-// Al finalizar la animación, espera 2 segundos y luego reiníciala
+
 animation.addEventListener('complete', function () {
     setTimeout(function () {
         animation.goToAndPlay(0, true);
-    }, 2000); // 2000 milisegundos = 2 segundos
+    }, 2000); 
 });
 
 
@@ -76,33 +76,38 @@ gsap.from('#logo', {
 
 
 
-// Función para activar la animación letra por letra
+
 function animateText(element) {
     const text = element.textContent;
-    const letters = text.split("");
-    element.textContent = ""; // Limpiar el texto original
+    element.textContent = ""; 
 
-    letters.forEach((letter, index) => {
+    text.split("").forEach((char, index) => {
         const span = document.createElement("span");
-        span.textContent = letter;
-        span.style.display = "inline-block"; // Permite que el span acepte transformaciones
-        span.style.opacity = 0; // Ocultar cada letra individualmente
-        span.style.transform = "translateY(100%)"; // Posicionar las letras abajo
+        span.textContent = char;
+
+        if (char === " ") {
+            span.style.whiteSpace = "pre"; 
+        } else {
+            span.style.display = "inline-block"; 
+            span.style.opacity = 0;
+            span.style.transform = "translateY(100%)";
+        }
 
         element.appendChild(span);
 
         gsap.to(span, {
             opacity: 1,
-            y: "0%", // Animar la posición hacia arriba
-            duration: 0.3, // Puedes aumentar la duración para notar mejor la animación
-            delay: index * 0.1, // Retraso entre letras
-            ease: "power1.out" // Tipo de easing
+            y: "0%", 
+            duration: 0.3, 
+            delay: index * 0.1, 
+            ease: "power1.out"
         });
     });
 }
 
 
-// Función para verificar si un elemento está visible en la pantalla
+
+
 function isVisible(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -110,39 +115,45 @@ function isVisible(element) {
     );
 }
 
-// Función para manejar el evento scroll
+
 function handleScroll() {
     const titles = document.querySelectorAll(".section-title");
 
     titles.forEach(title => {
         if (isVisible(title) && !title.classList.contains("animated")) {
             animateText(title);
-            title.classList.add("animated"); // Marcar el título como animado
+            title.classList.add("animated"); 
         }
     });
 }
 
-// Evento scroll
+
 window.addEventListener("scroll", handleScroll);
 
-// Inicializar la animación en los títulos visibles al cargar la página
+
 window.addEventListener("DOMContentLoaded", handleScroll);
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Configurar la animación para el contenedor
+
 gsap.from(".rounded-container", {
     scrollTrigger: {
-        trigger: ".rounded-container",    // Elemento que disparará la animación
-        start: "top 80%",                   // La animación se inicia cuando el top del elemento alcanza el 80% de la altura de la ventana
-        toggleActions: "play none none none" // Solo reproducir la animación una vez al entrar en pantalla
+        trigger: ".rounded-container",    
+        start: "top 80%",                   
+        toggleActions: "play none none none" 
     },
-    y: 100,              // El elemento inicia 100px más abajo de su posición final
-    opacity: 0,         // Comienza invisible
-    duration: 1.2,      // Duración total de la animación (en segundos)
-    ease: "bounce.out"  // Easing con rebote al finalizar
+    y: 100,              
+    opacity: 0,         
+    duration: 1.2,      
+    ease: "bounce.out"  
 });
 
 
+document.querySelector('.llamado_accion').addEventListener('click', function () {
+    document.getElementById('modal').style.display = 'flex';
+});
 
+document.getElementById('close-modal').addEventListener('click', function () {
+    document.getElementById('modal').style.display = 'none';
+});
 
