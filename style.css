@@ -249,6 +249,13 @@ body {
     height: auto;
 }
 
+.accordion-header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
 @media (max-width: 768px) {
     .card {
         min-width: calc(100% / 1.5);
